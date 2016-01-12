@@ -1,0 +1,24 @@
+<?php
+error_reporting(0);
+
+$date= date("d, M Y");//Menampilkan Tanggal tahun dan bulan
+$user_agent=$_SERVER['HTTP_USER_AGENT'];
+$ip=$_SERVER['REMOTE_ADDR'];//menampilkan alamat ip
+$negara=file_get_contents("http://ipinfo.io/{$_SERVER['REMOTE_ADDR']}/country"); //untuk mengetahui lokasi ip address
+$mycountry= trim($negara);
+//kondisi
+if(preg_match('/windows/i',$user_agent)){ //mengenal sistem operasi windows//menampilkan sistem operasi
+$os='Windows';
+} else 
+if(preg_match('/linux/i',$user_agent)){ //mengenal sistem operasi linux//menampilkan sistem operasi
+$os='Linux';
+}
+echo "Nama : Ekky Prio hutomo<br>";
+echo "NIM : 2014081051<br>";
+echo "Kelas : TI A 2014<br>";
+echo "Sistem Operasi : $os <BR>";
+echo "Browser : $user_agent";
+echo "<br>Tanggal : $date";
+echo "<BR>Alamat IP : $ip ";
+echo "<br>Negara : $negara";
+?>
